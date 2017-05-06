@@ -8,25 +8,20 @@
 		<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 		<!-- AngularFire -->
 		<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <!-- Moment -->
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <!-- ui-calendar -->
+    <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
 		<script type="text/javascript" src="js/client.js"></script>
 </head>
 <body>
+  
 
 
 
-
-
-	<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "",
-    authDomain: "casting-calendar.firebaseapp.com",
-    databaseURL: "https://casting-calendar.firebaseio.com",
-    projectId: "casting-calendar",
-    storageBucket: "casting-calendar.appspot.com",
-    messagingSenderId: "353195917896"
-  };
-  firebase.initializeApp(config);
-</script>
+  <!-- Initializing Firebase -->
+	<script src="js/firebase.js"></script>
 </body>
 </html>
