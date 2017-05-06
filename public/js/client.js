@@ -1,4 +1,4 @@
-angular.module('calendarApp', ["ui.router", "firebase", "ui.calendar"])
+angular.module('calendarApp', ["ui.router", "firebase"])
 	.controller('fireController', fireController);
 
 fireController.$inject = ['$scope', '$firebaseObject'];
