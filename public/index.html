@@ -3,14 +3,14 @@
 <head ng-app="calendarApp">
 	<title>Casting Calendar</title>
 		<!-- Angular -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
 		<!-- Firebase -->
 		<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 		<!-- AngularFire -->
 		<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
     <!-- bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 		<script type="text/javascript" src="js/client.js"></script>
     <script type="text/javascript" src="js/calendar.js"></script>
 </head>
@@ -22,7 +22,12 @@
 
   <pre id="content"></pre>
 
-
+  <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){
+        };
+        handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
   <!-- Initializing Firebase -->
 	<script src="js/firebase.js"></script>
 </body>
