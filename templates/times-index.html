@@ -1,0 +1,9 @@
+    <section ng-controller="TimesController as times" class="col-md-8 col-lg-8">
+      <ul id="times">
+        <li ng-repeat="time in times.all" data-id="">
+          {{time.time}}
+          <input type="text" id="time-attendee-email" ng-model="time.newEvent.email" placeholder="john@doe.com" class="form-control focus" required>{{times.email}}
+          <button class='btn form-btn' ng-click="times.bookTime(time)">Book Time</button>
+        </li>
+      </ul>
+    </section>
