@@ -68,12 +68,12 @@ function TimesController($http){
 			}
 		};
 		var request = gapi.client.calendar.events.insert({
-			'calendarId': 'primary',
+			'calendarId': 'o3fe9sivdnaqokfc367te542cs@group.calendar.google.com',
 			'resource': event
 		});
 			console.log(request);
-		request.execute(function(event) {
-			appendPre('Event created: ' + event.htmlLink);
+			request.execute(function(event) {
+			console.log('Event created: ' + event.htmlLink);
 		});
 	}
 }
