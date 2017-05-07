@@ -7,41 +7,46 @@
   <link rel="stylesheet" href="styles/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600" rel="stylesheet">
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
   <script src="js/calendar.js"></script>
   <script src="js/timesControllers.js"></script>
 </head>
-<div class="container">
-  <header class="navbar">
-    <h1 class="pull-left">Scheduling App</h1>
+<body ng-app="CastingAiApp">
+
+  <div class="container">
+
+    <header class="page-heading">
+      <h1 class="pull-left">CastingAi Scheduling</h1>
+      <hr>
+    </header>
+
     <div class="buttons">
       <button class="btn btn-primary btn-lg" id="authorized">Authorize</button>
       <button class="btn btn-danger btn-lg" id="signout">Sign Out</button>
     </div>
-  </header>
-  <body ng-app="CastingAiApp">
-    <h1 class="pull-left">Available Times</h1>
+    <h1 class="page-heading">Available Times</h1>
+
     <section ng-controller="TimesController as times">
       <ul id="times">
         <li ng-repeat="time in times.all" data-id="">
-            <input type="text" id="new-event-attendee" ng-model="times.newEvent.attendeeEmail" placeholder="john@doe.com" class="form-control focus" required>
-         {{time.time}}
-            <button class='btn-success' ng-click="times.bookTime(time)">Book Time</button>
-       </li>
-     </ul>
-  </section>
-  <div class="frame">
-    <iframe src="https://calendar.google.com/calendar/embed?src=o3fe9sivdnaqokfc367te542cs%40group.calendar.google.com&ctz=America/Denver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-  </div>
-</body>
-<script async defer src="https://apis.google.com/js/api.js"
-onload="this.onload=function(){
-};
-handleClientLoad()"
-onreadystatechange="if (this.readyState === 'complete') this.onload()">
+          {{time.time}}
+          <input type="text" id="time-attendee-email" ng-model="time.newEvent.email" placeholder="john@doe.com" class="form-control focus" required>{{times.email}}
+          <button class='btn btn-success form-btn' ng-click="times.bookTime(time)">Book Time</button>
+        </li>
+      </ul>
+    </section>
+    <section class="bottom">
+      <iframe src="https://calendar.google.com/calendar/embed?mode=WEEK&showPrint=0&showCalendars=0&color=%23AB8B00&showNav=0&showTz=0&wkst=2&src=o3fe9sivdnaqokfc367te542cs%40group.calendar.google.com&ctz=America/Denver" style="border: 0" height="600" frameborder="0" scrolling="no"></iframe>
+    </section>
+
+  </body>
+  <script async defer src="https://apis.google.com/js/api.js"
+  onload="this.onload=function(){
+  };
+  handleClientLoad()"
+  onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 </script>
 </html>

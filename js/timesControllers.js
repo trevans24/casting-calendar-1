@@ -71,7 +71,7 @@ function TimesController($http){
 			'calendarId': 'primary',
 			'resource': event
 		});
-		console.log(request);
+			console.log(request);
 		request.execute(function(event) {
 			appendPre('Event created: ' + event.htmlLink);
 		});

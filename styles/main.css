@@ -1,31 +1,60 @@
-ul {
+/*background*/
+body {
+	background-color: #7FDEFF;
+}
+/*all buttons*/
+.btn {
+	border-radius: 10px;
+}
+
+/*heading*/
+.page-heading {
+	color: #4F518C;
+  font-family: 'Cabin', sans-serif;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.buttons {
+  text-align: center;
+}
+
+/*booking spots*/
+#times {
+	float: left;
 	list-style: none;
 }
 
 li {
+	background-color: #3A506B;
+	border: 1px solid #3A506B;
+	border-radius: 20px;
+	box-shadow: 1px;
+	display: inline-block;
+	color: #5DB7DE;
+	font-family: "Cabin", sans-serif;
+	font-size: 20px;
+	font-weight: 500;
 	margin: 5px 0;
+	margin: 10px;
+	padding: 15px;
+	text-align: center;
 }
 
-#times {
-	float: left;
+li input {
+	margin-bottom: 5px;
 }
 
-.frame {
-	clear: both;
+.form-btn {
+	background-color: #59CD90;
+	color: #3A506B;
 }
 
-input, button {
-	display: inline;
+.form-btn:hover {
+	opacity: .7;
 }
 
-#form {
-	float: right;
-}
-
-.buttons {
-    text-align: center;
-}
-.page-header {
-    font-family: 'Cabin', sans-serif;
-    text-align: center;
+/*calendar*/
+iframe {
+	width: 100%;
 }
