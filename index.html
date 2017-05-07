@@ -15,27 +15,38 @@
 </head>
 <body ng-app="CastingAiApp">
 
-  <div class="container">
+      
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.png" alt="casting-ai-logo">
+        </a>
+      </div>
+    </div>
+  </nav>
+
 
     <header class="page-heading">
       <h1 class="pull-left">CastingAi Scheduling</h1>
       <hr>
     </header>
 
-    <div class="buttons">
+   <!--  <div class="buttons">
       <button class="btn btn-primary btn-lg" id="authorized">Authorize</button>
       <button class="btn btn-danger btn-lg" id="signout">Sign Out</button>
-    </div>
+    </div> -->
     <h1 class="page-heading">Available Times</h1>
 
     <pre id="content"></pre>
 
-    <section ng-controller="TimesController as times">
+    <section ng-controller="TimesController as times" class="col-md-8 col-lg-8">
       <ul id="times">
         <li ng-repeat="time in times.all" data-id="">
           {{time.time}}
           <input type="text" id="time-attendee-email" ng-model="time.newEvent.email" placeholder="john@doe.com" class="form-control focus" required>{{times.email}}
-          <button class='btn btn-success form-btn' ng-click="times.bookTime(time)">Book Time</button>
+          <button class='btn form-btn' ng-click="times.bookTime(time)">Book Time</button>
         </li>
       </ul>
     </section>

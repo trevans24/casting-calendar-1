@@ -1,15 +1,26 @@
 /*background*/
 body {
-	background-color: #7FDEFF;
+	background-color: #F4EFEB;
 }
 /*all buttons*/
 .btn {
 	border-radius: 10px;
 }
 
+/*nav*/
+img {
+	float: left;
+	height: 60px;
+	width: 60px;
+}
+
+.navbar {
+	height: 10px;
+}
+
 /*heading*/
 .page-heading {
-	color: #4F518C;
+	color: #3E3E42;
   font-family: 'Cabin', sans-serif;
   padding: 10px 0;
   text-align: center;
@@ -20,18 +31,21 @@ body {
 }
 
 /*booking spots*/
+section {
+	margin: 0 auto;
+}
+
 #times {
-	float: left;
 	list-style: none;
 }
 
 li {
-	background-color: #3A506B;
-	border: 1px solid #3A506B;
+	background-color: #3E3E42;
+	border: 1px solid #F4EFEB;
 	border-radius: 20px;
 	box-shadow: 1px;
 	display: inline-block;
-	color: #5DB7DE;
+	color: #A5A6A5;
 	font-family: "Cabin", sans-serif;
 	font-size: 20px;
 	font-weight: 500;
@@ -46,12 +60,12 @@ li input {
 }
 
 .form-btn {
-	background-color: #59CD90;
-	color: #3A506B;
+	background-color: #03050E;
+	color: #47BBB2;
 }
 
 .form-btn:hover {
-	opacity: .7;
+	opacity: .6;
 }
 
 /*calendar*/
