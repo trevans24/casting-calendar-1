@@ -1,0 +1,31 @@
+ul {
+	list-style: none;
+}
+
+li {
+	margin: 5px 0;
+}
+
+#times {
+	float: left;
+}
+
+.frame {
+	clear: both;
+}
+
+input, button {
+	display: inline;
+}
+
+#form {
+	float: right;
+}
+
+.buttons {
+    text-align: center;
+}
+.page-header {
+    font-family: 'Cabin', sans-serif;
+    text-align: center;
+}
