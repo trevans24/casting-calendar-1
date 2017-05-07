@@ -35,7 +35,7 @@ section {
 	margin: 0 auto;
 }
 
-#times {
+.times {
 	list-style: none;
 }
 
@@ -49,7 +49,6 @@ li {
 	font-family: "Cabin", sans-serif;
 	font-size: 20px;
 	font-weight: 500;
-	margin: 5px 0;
 	margin: 10px;
 	padding: 15px;
 	text-align: center;
@@ -69,6 +68,40 @@ li input {
 }
 
 /*calendar*/
-iframe {
+.table {
+	background-color: #3E3E42;
+	color: #F4EFEB;
+}
+
+.table td {
+	height: 90px;
+	width: 90px;
+}
+
+.table td:hover {
+	opacity: .6;
+}
+
+.table a {
+	color: #F4EFEB;
+	display: inline-block;
+	font-family: 'Cabin', sans-serif;
+	height: 100%;
+	text-decoration: none;
 	width: 100%;
+}
+
+.table h4 {
+	text-align: center;
+}
+
+/*link buttons*/
+.link-btn {
+	background-color: #A5A6A5;
+	color: #3E3E42;
+	margin: 10px 0;
+}
+
+.links {
+	text-align: center;
 }

@@ -25,11 +25,14 @@ var bookedTimes = [];
 ////////////
 app.config(function($routeProvider, $locationProvider){
   $routeProvider
-    .when('/', {
+  	.when('/', {
+  		templateUrl: '../templates/calendar.html'
+  	})
+    .when('/appts', {
       templateUrl: '../templates/times-index.html',
       controller: 'TimesController'
     })
-    .when('/appts', {
+    .when('/booked', {
       templateUrl: '../templates/times-show.html',
       controller: 'BookedTimesController'
     });
@@ -48,18 +51,13 @@ function BookedTimesController(){
 }
 
 function TimesController(){
-	console.log("TIMES");
+	// console.log("TIMES");
 	var self = this;
 	self.all = [];
 	self.getTimes = getTimes;
 	self.bookTime = bookTime;
-	self.formDrop = formDrop;
+	self.removeTime = removeTime;
 	self.newForm = false;
-
- 	//form drop function
-	function formDrop(){
-	   self.newForm = !self.newForm;
-	 }
 
 	getTimes();
 	function getTimes(){
@@ -69,53 +67,13 @@ function TimesController(){
 	function bookTime(time){
 		var index = self.all.indexOf(time);
 		bookedTimes.push(timesList[index]);
-		// console.log(timesList[index].mTime);
 		self.all.splice(index, 1);
-		//ADD IN GOOGLE CALENDAR API ADD EVENT FUNCTION
-		var event = {
-				"kind": "calendar#event",
-				"etag": "\"2988363401454000\"",
-				// "id": "so3fe9sivdnaqokfc367te542cs",
-				"status": "confirmed",
-				"htmlLink": "https://www.google.com/calendar/event?eid=c29pOHZzZTJvbzJpaTVuNm90YnRhcWp1ODQgdHJldmFuczI0QG0",
-				"created": "2017-05-07T18:28:20.000Z",
-				"updated": "2017-05-07T18:28:20.727Z",
-				"creator": {
-					"email": "trevans24@gmail.com",
-					"displayName": "Troy Evans",
-					"self": true
-				},
-				"organizer": {
-					"email": "trevans24@gmail.com",
-					"displayName": "Troy Evans",
-					"self": true
-				},
-				"start": {
-					"dateTime": "2017-05-07T" + time.mTime + ":00-06:00",
-					"timeZone": "GMT-06:00"
-				},
-				"end": {
-					"dateTime": "2017-05-07T" + time.fTime + ":00-06:00",
-					"timeZone": "GMT-06:00"
-				},
-				"iCalUID": "o3fe9sivdnaqokfc367te542cs@google.com",
-				"sequence": 0,
-				"reminders": {
-					"useDefault": true
-			}
-		};
-		var request = gapi.client.calendar.events.insert({
-			'calendarId': 'o3fe9sivdnaqokfc367te542cs',
-			'resource': event
-		});
-			// console.log(event.attendees[0]);
-			// console.log(request);
-			request.execute(function(event) {
-				$http.post('https://www.googleapis.com/calendar/v3/calendars/o3fe9sivdnaqokfc367te542cs/events/')
-				.then((event)=>{
-					console.log("event", event);
-				});
-			// console.log('Event created: ' + event.htmlLink);
-		});
+		// console.log("booked: " + index);
+	}
+
+	function removeTime(time){
+		var index = self.all.indexOf(time);
+		self.all.splice(index, 1);
+		console.log("removed");
 	}
 }
