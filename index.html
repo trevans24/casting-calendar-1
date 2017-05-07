@@ -1,58 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CastingAiApp">
 <head>
   <meta charset="UTF-8">
   <title>CastingAi</title>
   <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
   <link rel="stylesheet" href="styles/main.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+      <script src="bower_components/angular-route/angular-route.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  <script src="js/calendar.js"></script>
   <script src="js/timesControllers.js"></script>
 </head>
-<body ng-app="CastingAiApp">
-
-      
-
+<body>
   <nav class="navbar">
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
           <img src="images/logo.png" alt="casting-ai-logo">
         </a>
+        <a href="/">Available Times</a>
+        <a href="/appts">Booked Times</a>
       </div>
     </div>
   </nav>
-
-
     <header class="page-heading">
       <h1 class="pull-left">CastingAi Scheduling</h1>
       <hr>
     </header>
 
-   <!--  <div class="buttons">
-      <button class="btn btn-primary btn-lg" id="authorized">Authorize</button>
-      <button class="btn btn-danger btn-lg" id="signout">Sign Out</button>
-    </div> -->
     <h1 class="page-heading">Available Times</h1>
 
-    <pre id="content"></pre>
+    <ng-view></ng-view>
 
-    <section ng-controller="TimesController as times" class="col-md-8 col-lg-8">
-      <ul id="times">
-        <li ng-repeat="time in times.all" data-id="">
-          {{time.time}}
-          <input type="text" id="time-attendee-email" ng-model="time.newEvent.email" placeholder="john@doe.com" class="form-control focus" required>{{times.email}}
-          <button class='btn form-btn' ng-click="times.bookTime(time)">Book Time</button>
-        </li>
-      </ul>
-    </section>
-   <!--  <section class="bottom">
-      <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=WEEK&amp;height=600&amp;wkst=2&amp;bgcolor=%23ccccff&amp;src=o3fe9sivdnaqokfc367te542cs@group.calendar.google.com&amp;color=%238D6F47&amp;ctz=America%2FDenver" style="border-width:0" height="600" frameborder="0" scrolling="no"></iframe>
-    </section> -->
     <div class="calendar">
       
     </div>

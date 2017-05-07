@@ -1,6 +1,7 @@
 console.log("Times controller");
 
-angular.module("CastingAiApp", [])
+var app = angular.module("CastingAiApp", ['ngRoute'])
+.controller("BookedTimesController", BookedTimesController)
 .controller("TimesController", TimesController);
 
 var timesList = [
@@ -18,10 +19,36 @@ var timesList = [
 	{time: "3:45PM", mTime: "15:45", fTime: "16:00"}
 ];
 
+var bookedTimes = [];
+////////////
+// ROUTES //
+////////////
+app.config(function($routeProvider, $locationProvider){
+  $routeProvider
+    .when('/', {
+      templateUrl: '../templates/times-index.html',
+      controller: 'TimesController'
+    })
+    .when('/appts', {
+      templateUrl: '../templates/times-show.html',
+      controller: 'BookedTimesController'
+    });
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
+});
+/////////////////
+// CONTROLLERS //
+/////////////////
+function BookedTimesController(){
+	console.log("BOOKED");
+	var self = this;
+	self.all = bookedTimes;
+}
 
-
-TimesController.$inject =['$http'];
-function TimesController($http){
+function TimesController(){
+	console.log("TIMES");
 	var self = this;
 	self.all = [];
 	self.getTimes = getTimes;
@@ -41,6 +68,7 @@ function TimesController($http){
 	
 	function bookTime(time){
 		var index = self.all.indexOf(time);
+		bookedTimes.push(timesList[index]);
 		// console.log(timesList[index].mTime);
 		self.all.splice(index, 1);
 		//ADD IN GOOGLE CALENDAR API ADD EVENT FUNCTION
