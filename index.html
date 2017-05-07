@@ -28,6 +28,8 @@
     </div>
     <h1 class="page-heading">Available Times</h1>
 
+    <pre id="content"></pre>
+
     <section ng-controller="TimesController as times">
       <ul id="times">
         <li ng-repeat="time in times.all" data-id="">
@@ -37,9 +39,12 @@
         </li>
       </ul>
     </section>
-    <section class="bottom">
+   <!--  <section class="bottom">
       <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=WEEK&amp;height=600&amp;wkst=2&amp;bgcolor=%23ccccff&amp;src=o3fe9sivdnaqokfc367te542cs@group.calendar.google.com&amp;color=%238D6F47&amp;ctz=America%2FDenver" style="border-width:0" height="600" frameborder="0" scrolling="no"></iframe>
-    </section>
+    </section> -->
+    <div class="calendar">
+      
+    </div>
 
   </body>
   <script async defer src="https://apis.google.com/js/api.js"

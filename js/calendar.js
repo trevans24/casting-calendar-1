@@ -2,7 +2,7 @@ const client_id = "1086657930486-mm9fggoimnv8lo08hu3jmbdh4gfg1gkp";
 
 let discovery_docs = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
 // authorized scopes required by API
-let scopes = 'https://www.googleapis.com/auth/calendar.readonly';
+let scopes = 'https://www.googleapis.com/auth/calendar';
 // On load function
 function handleClientLoad() {
     gapi.load('client:auth2', initClient);
