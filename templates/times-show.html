@@ -1,0 +1,14 @@
+<div class="links">
+	<a href="/" class="btn btn-lg link-btn">Back to Calendar</a>
+	<a href="/appts" class="btn btn-lg link-btn">Back to Available Times</a>
+	<a href="#" class="btn btn-lg link-btn">Find Replacement</a>
+</div>
+<section ng-controller="BookedTimesController as times" class="container">
+	<ul id="times">
+		<li ng-repeat="time in times.all" data-id="">
+			{{time.time}}
+			<input type="text" id="time-attendee-email" ng-model="time.newEvent.email" placeholder="john@doe.com" class="form-control focus" required>{{times.email}}
+			<button class='btn form-btn' ng-click="times.removeTime(time)">Reschedule</button>
+		</li>
+	</ul>
+</section>

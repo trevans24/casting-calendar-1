@@ -1,31 +1,107 @@
-ul {
+/*background*/
+body {
+	background-color: #F4EFEB;
+}
+/*all buttons*/
+.btn {
+	border-radius: 10px;
+}
+
+/*nav*/
+img {
+	float: left;
+	height: 60px;
+	width: 60px;
+}
+
+.navbar {
+	height: 10px;
+}
+
+/*heading*/
+.page-heading {
+	color: #3E3E42;
+  font-family: 'Cabin', sans-serif;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.buttons {
+  text-align: center;
+}
+
+/*booking spots*/
+section {
+	margin: 0 auto;
+}
+
+.times {
 	list-style: none;
 }
 
 li {
-	margin: 5px 0;
+	background-color: #3E3E42;
+	border: 1px solid #F4EFEB;
+	border-radius: 20px;
+	box-shadow: 1px;
+	display: inline-block;
+	color: #A5A6A5;
+	font-family: "Cabin", sans-serif;
+	font-size: 20px;
+	font-weight: 500;
+	margin: 10px;
+	padding: 15px;
+	text-align: center;
 }
 
-#times {
-	float: left;
+li input {
+	margin-bottom: 5px;
 }
 
-.frame {
-	clear: both;
+.form-btn {
+	background-color: #03050E;
+	color: #47BBB2;
 }
 
-input, button {
-	display: inline;
+.form-btn:hover {
+	opacity: .6;
 }
 
-#form {
-	float: right;
+/*calendar*/
+.table {
+	background-color: #3E3E42;
+	color: #F4EFEB;
 }
 
-.buttons {
-    text-align: center;
+.table td {
+	height: 90px;
+	width: 90px;
 }
-.page-header {
-    font-family: 'Cabin', sans-serif;
-    text-align: center;
+
+.table td:hover {
+	opacity: .6;
+}
+
+.table a {
+	color: #F4EFEB;
+	display: inline-block;
+	font-family: 'Cabin', sans-serif;
+	height: 100%;
+	text-decoration: none;
+	width: 100%;
+}
+
+.table h4 {
+	text-align: center;
+}
+
+/*link buttons*/
+.link-btn {
+	background-color: #A5A6A5;
+	color: #3E3E42;
+	margin: 10px 0;
+}
+
+.links {
+	text-align: center;
 }

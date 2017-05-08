@@ -1,0 +1,12 @@
+<div class="links">
+	<a href="/" class="btn btn-lg link-btn">Back to Calendar</a>
+</div>
+<section ng-controller="TimesController as times" class="container">
+	<ul class="times">
+		<li ng-repeat="time in times.all" data-id="">
+			{{time.time}}
+			<input type="text" id="time-attendee-email" ng-model="time.newEvent.email" placeholder="john@doe.com" class="form-control focus" required>{{times.email}}
+			<a href="/booked" class='btn form-btn link-btn' ng-click="times.bookTime(time)">Book Time</a>
+		</li>
+	</ul>
+</section>

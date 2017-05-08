@@ -1,6 +1,7 @@
 console.log("Times controller");
 
-angular.module("CastingAiApp", [])
+var app = angular.module("CastingAiApp", ['ngRoute'])
+.controller("BookedTimesController", BookedTimesController)
 .controller("TimesController", TimesController);
 
 var timesList = [
@@ -18,21 +19,45 @@ var timesList = [
 	{time: "3:45PM", mTime: "15:45", fTime: "16:00"}
 ];
 
+var bookedTimes = [];
+////////////
+// ROUTES //
+////////////
+app.config(function($routeProvider, $locationProvider){
+  $routeProvider
+  	.when('/', {
+  		templateUrl: '../templates/calendar.html'
+  	})
+    .when('/appts', {
+      templateUrl: '../templates/times-index.html',
+      controller: 'TimesController'
+    })
+    .when('/booked', {
+      templateUrl: '../templates/times-show.html',
+      controller: 'BookedTimesController'
+    });
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
+});
+/////////////////
+// CONTROLLERS //
+/////////////////
+function BookedTimesController(){
+	console.log("BOOKED");
+	var self = this;
+	self.all = bookedTimes;
+}
 
-
-TimesController.$inject =['$http'];
-function TimesController($http){
+function TimesController(){
+	// console.log("TIMES");
 	var self = this;
 	self.all = [];
 	self.getTimes = getTimes;
 	self.bookTime = bookTime;
-	self.formDrop = formDrop;
+	self.removeTime = removeTime;
 	self.newForm = false;
-
- 	//form drop function
-	function formDrop(){
-	   self.newForm = !self.newForm;
-	 }
 
 	getTimes();
 	function getTimes(){
@@ -41,39 +66,14 @@ function TimesController($http){
 	
 	function bookTime(time){
 		var index = self.all.indexOf(time);
-		console.log(timesList[index].mTime);
+		bookedTimes.push(timesList[index]);
 		self.all.splice(index, 1);
-		//ADD IN GOOGLE CALENDAR API ADD EVENT FUNCTION
-		var event = {
-			'summary': 'Casting Ai',
-			'location': 'Your place!',
-			'description': 'Great acting opportunity!',
-			'start': {
-				'dateTime': '2015-05-07T' + time.mTime +':00-06:00',
-				'timeZone': 'America/Boulder'
-			},
-			'end': {
-				'dateTime': '2015-05-07T'+ time.fTime +':00-06:00',
-				'timeZone': 'America/Blouder'
-			},
-			'attendees': [
-			{'email': 'lpage@example.com'}
-			],
-			'reminders': {
-				'useDefault': false,
-				'overrides': [
-				{'method': 'email', 'minutes': 24 * 60},
-				{'method': 'popup', 'minutes': 10}
-				]
-			}
-		};
-		var request = gapi.client.calendar.events.insert({
-			'calendarId': 'primary',
-			'resource': event
-		});
-		console.log(request);
-		request.execute(function(event) {
-			appendPre('Event created: ' + event.htmlLink);
-		});
+		// console.log("booked: " + index);
+	}
+
+	function removeTime(time){
+		var index = self.all.indexOf(time);
+		self.all.splice(index, 1);
+		console.log("removed");
 	}
 }
